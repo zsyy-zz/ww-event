@@ -1,6 +1,7 @@
 import js from '@eslint/js'
 import pluginVue from 'eslint-plugin-vue'
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
+import { ElLoading, ElMessage, ElMessageBox } from 'element-plus'
 
 export default [
   {
@@ -27,6 +28,11 @@ export default [
     },
     name: 'app/files-to-lint',
     files: ['**/*.{js,mjs,jsx,vue}'],
+    globals:{
+      ElMessage: 'readonly',
+      ElMessageBox: 'readonly',
+      ElLoading: 'readonly'
+    }
   },
 
   js.configs.recommended,
